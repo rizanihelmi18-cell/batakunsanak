@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mengapa 1000 Hari Pertama Kehidupan Sangat Krusial Bagi Anak? - Batakun Sanak</title>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        /* =========================================================
+           ROOT PALETTE (Sesuai dengan index.html)
+        ========================================================= */
+        :root {
+            --purple: #A680DA;
+            --purple-dark: #7B5282;
+            --purple-light: #F1ECFA;
+
+            --magenta: #79556C;
+            --magenta-dark: #583A4E;
+            --magenta-light: #EBE3E8;
+
+            --yellow: #FFC800;
+            --yellow-light: #FFF8D6;
+            --yellow-dark: #B88E00;
+
+            --sage: #818D5D;
+            --sage-dark: #5E6840;
+            --sage-light: #F2F4ED;
+
+            --text: #2A2135;
+            --text-soft: #635870;
+            --border: #E3DDF0;
+
+            --white: #ffffff;
+            --shadow: 0 15px 45px rgba(123, 82, 130, 0.12);
+        }
+
+        /* RESET & GENERAL */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "DM Sans", sans-serif;
+            color: var(--text);
+            background: #ffffff;
+            overflow-x: hidden;
+            line-height: 1.7;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1180px;
+            margin: auto;
+            padding-left: 24px;
+            padding-right: 24px;
+        }
+
+        .container-narrow {
+            width: 100%;
+            max-width: 800px;
+            margin: auto;
+            padding-left: 24px;
+            padding-right: 24px;
+        }
+
+        /* NAVBAR (Fixed) */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 10px 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(12px);
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.06);
+            transition: all .3s ease;
+        }
+
+        .nav-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-icon {
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 14px;
+            background: var(--white);
+            color: var(--purple-dark);
+            box-shadow: 0 8px 25px rgba(123, 82, 130, 0.18);
+        }
+
+        .logo-text strong {
+            display: block;
+            font-family: "Plus Jakarta Sans", sans-serif;
+            font-size: 18px;
+            font-weight: 800;
+            color: var(--text);
+        }
+
+        .logo-text span {
+            display: block;
+            margin-top: 1px;
+            color: var(--text-soft);
+            font-size: 10px;
+            font-weight: 600;
+        }
+
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            color: var(--text);
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .nav-menu a { transition: .2s; }
+        .nav-menu a:hover, .nav-menu a.active { color: var(--purple-dark); }
+
+        .nav-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 11px 20px;
+            border-radius: 50px;
+            background: var(--purple-dark);
+            color: white;
+            font-size: 13px;
+            font-weight: 700;
+            box-shadow: 0 8px 25px rgba(123, 82, 130, 0.28);
+            transition: .25s;
+        }
+
+        .nav-button:hover {
+            background: var(--magenta-dark);
+            transform: translateY(-2px);
+        }
+
+        /* BREADCRUMB & BACK BUTTON */
+        .article-header {
+            padding-top: 120px;
+            padding-bottom: 20px;
+        }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-soft);
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            transition: .2s;
+        }
+
+        .back-btn:hover {
+            color: var(--purple-dark);
+            transform: translateX(-4px);
+        }
+
+        /* ARTICLE META & TITLE */
+        .article-tag {
+            display: inline-block;
+            padding: 6px 14px;
+            border-radius: 50px;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+        }
+
+        .tag-stunting { background: var(--sage-light); color: var(--sage-dark); }
+
+        .main-title {
+            font-family: "Plus Jakarta Sans", sans-serif;
+            font-size: clamp(28px, 4vw, 42px);
+            font-weight: 800;
+            line-height: 1.3;
+            color: var(--text);
+            margin-bottom: 20px;
+        }
+
+        .author-meta {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-bottom: 24px;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .author-info {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .author-avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .author-details strong {
+            display: block;
+            font-size: 14px;
+            color: var(--text);
+        }
+
+        .author-details span {
+            font-size: 12px;
+            color: var(--text-soft);
+        }
+
+        .meta-details {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            font-size: 12px;
+            color: var(--text-soft);
+        }
+
+        /* HERO IMAGE */
+        .featured-image-wrapper {
+            margin-bottom: 40px;
+        }
+
+        .featured-image-wrapper img {
+            width: 100%;
+            max-height: 450px;
+            object-fit: cover;
+            border-radius: 24px;
+            box-shadow: var(--shadow);
+        }
+
+        .img-caption {
+            font-size: 12px;
+            color: var(--text-soft);
+            text-align: center;
+            margin-top: 10px;
+            font-style: italic;
+        }
+
+        /* ARTICLE CONTENT STYLES */
+        .article-content {
+            font-size: 16px;
+            color: var(--text);
+        }
+
+        .article-content p {
+            margin-bottom: 24px;
+            color: #3B3245;
+        }
+
+        .article-content h2 {
+            font-family: "Plus Jakarta Sans", sans-serif;
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--text);
+            margin: 36px 0 16px;
+        }
+
+        .article-content h3 {
+            font-family: "Plus Jakarta Sans", sans-serif;
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--purple-dark);
+            margin: 24px 0 12px;
+        }
+
+        /* HIGHLIGHT BOX / QUOTE */
+        .quote-box {
+            background: var(--purple-light);
+            border-left: 4px solid var(--purple-dark);
+            padding: 20px 24px;
+            border-radius: 0 16px 16px 0;
+            margin: 32px 0;
+            font-style: italic;
+            color: var(--magenta-dark);
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        /* INFO CALLOUT */
+        .callout-box {
+            background: var(--sage-light);
+            border: 1px solid var(--sage);
+            padding: 24px;
+            border-radius: 20px;
+            margin: 32px 0;
+        }
+
+        .callout-box h4 {
+            color: var(--sage-dark);
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .callout-box ul {
+            padding-left: 20px;
+            margin-top: 10px;
+        }
+
+        .callout-box li {
+            margin-bottom: 8px;
+            color: var(--text);
+            font-size: 14px;
+        }
+
+        /* AUTHOR BIO BOX */
+        .author-box {
+            background: #F9F8FC;
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 24px;
+            margin: 50px 0;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .author-box img {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .author-box-info h4 {
+            font-size: 15px;
+            color: var(--text);
+            margin-bottom: 4px;
+        }
+
+        .author-box-info p {
+            font-size: 13px;
+            color: var(--text-soft);
+            margin: 0;
+        }
+
+        /* RELATED ARTICLES */
+        .related-section {
+            padding: 60px 0;
+            background: var(--purple-light);
+            margin-top: 60px;
+        }
+
+        .related-title {
+            font-family: "Plus Jakarta Sans", sans-serif;
+            font-size: 22px;
+            font-weight: 800;
+            margin-bottom: 30px;
+            color: var(--text);
+        }
+
+        .related-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+        }
+
+        .related-card {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 16px;
+            display: flex;
+            gap: 16px;
+            align-items: center;
+            border: 1px solid var(--border);
+            transition: .25s;
+        }
+
+        .related-card:hover {
+            transform: translateY(-3px);
+            border-color: var(--purple);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+        }
+
+        .related-card img {
+            width: 100px;
+            height: 80px;
+            border-radius: 12px;
+            object-fit: cover;
+        }
+
+        .related-card h4 {
+            font-size: 14px;
+            font-weight: 700;
+            line-height: 1.4;
+            color: var(--text);
+            margin-bottom: 6px;
+        }
+
+        /* FOOTER (Sesuai index.html) */
+        footer {
+            padding: 50px 0 25px;
+            background: #1F1829;
+            color: white;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.4fr 1fr 1fr 1fr;
+            gap: 40px;
+            padding-bottom: 40px;
+        }
+
+        .footer-brand strong {
+            display: block;
+            font-family: "Plus Jakarta Sans", sans-serif;
+            font-size: 19px;
+            margin-bottom: 10px;
+        }
+
+        .footer-brand p {
+            max-width: 320px;
+            color: rgba(255,255,255,.6);
+            font-size: 11px;
+            line-height: 1.8;
+        }
+
+        .footer-column h4 {
+            font-size: 12px;
+            margin-bottom: 15px;
+            color: var(--yellow);
+        }
+
+        .footer-column a {
+            display: block;
+            color: rgba(255,255,255,.58);
+            font-size: 11px;
+            margin-bottom: 10px;
+            transition: .2s;
+        }
+
+        .footer-column a:hover { color: white; }
+
+        .footer-bottom {
+            padding-top: 22px;
+            border-top: 1px solid rgba(255,255,255,.10);
+            color: rgba(255,255,255,.45);
+            font-size: 10px;
+            text-align: center;
+        }
+
+        /* RESPONSIVE */
+        @media(max-width: 950px) {
+            .nav-menu, .nav-button { display: none; }
+            .related-grid { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media(max-width: 600px) {
+            .author-meta { flex-direction: column; align-items: flex-start; }
+            .author-box { flex-direction: column; text-align: center; }
+            .footer-grid { grid-template-columns: 1fr 1fr; gap: 30px 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <header class="navbar">
+        <div class="container nav-inner">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">
+                    <i data-lucide="heart-handshake"></i>
+                </div>
+                <div class="logo-text">
+                    <strong>Batakun Sanak</strong>
+                    <span>Ruang Nyaman Keluarga</span>
+                </div>
+            </a>
+
+            <nav class="nav-menu">
+                <a href="index.html">Beranda</a>
+                <a href="index.html#layanan">Layanan</a>
+                <a href="artikel.html" class="active">Artikel</a>
+                <a href="tutorial.html">Tutorial</a>
+                <a href="index.html#tentang">Tentang Kami</a>
+                <a href="index.html#faq">FAQ</a>
+            </nav>
+
+            <a href="https://wa.me/" target="_blank" class="nav-button">
+                <i data-lucide="message-circle"></i>
+                Mulai Konsultasi
+            </a>
+        </div>
+    </header>
+
+    <!-- ARTICLE HEADER -->
+    <header class="article-header container-narrow">
+        <a href="artikel.html" class="back-btn">
+            <i data-lucide="arrow-left" style="width: 16px;"></i>
+            Kembali ke Daftar Artikel
+        </a>
+        <br>
+        <span class="article-tag tag-stunting">Pencegahan Stunting</span>
+        <h1 class="main-title">Mengapa 1000 Hari Pertama Kehidupan Sangat Krusial Bagi Anak?</h1>
+        
+        <div class="author-meta">
+            <div class="author-info">
+                <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=150&q=80" alt="dr. Siti Rahmah, Sp.A" class="author-avatar">
+                <div class="author-details">
+                    <strong>dr. Siti Rahmah, Sp.A</strong>
+                    <span>Dokter Spesialis Anak</span>
+                </div>
+            </div>
+            <div class="meta-details">
+                <span><i data-lucide="calendar" style="width:14px; display:inline;"></i> 10 Sep 2026</span>
+                <span>•</span>
+                <span><i data-lucide="clock" style="width:14px; display:inline;"></i> 5 Min Baca</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main class="container-narrow">
+        
+        <div class="featured-image-wrapper">
+            <img src="https://images.unsplash.com/photo-1542037104857-ffbb0b9155fb?auto=format&fit=crop&w=1000&q=80" alt="Ibu dan Bayi">
+            <p class="img-caption">Pemenuhan nutrisi optimal sejak dalam kandungan hingga usia 2 tahun menentukan masa depan anak.</p>
+        </div>
+
+        <article class="article-content">
+            <p>
+                Pernahkah Anda mendengar istilah <strong>1000 Hari Pertama Kehidupan (1000 HPK)</strong>? Periode ini sering disebut sebagai <i>"Window of Opportunity"</i> atau periode emas dalam tumbuh kembang seorang anak. Periode ini dimulai sejak masa pembuahan di dalam kandungan (270 hari) hingga anak genap berusia 2 tahun (730 hari).
+            </p>
+
+            <p>
+                Mengapa periode ini dianggap sangat krusial? Karena dampak pemenuhan gizi dan pengasuhan pada masa 1000 HPK bersifat permanen dan tidak dapat diperbaiki sepenuhnya di masa dewasa kelak.
+            </p>
+
+            <div class="quote-box">
+                "Kerusakan jaringan atau hambatan kognitif yang terjadi akibat kecukupan gizi yang buruk selama 1000 HPK bersifat irreversible (tidak dapat diputar balik)."
+            </div>
+
+            <h2>Apa yang Terjadi Selama 1000 Hari Pertama?</h2>
+            <p>
+                Selama periode ini, tumbuh kembang fisik dan sel otak anak berlangsung luar biasa pesat. Lebih dari 80% pembentukan organ vital dan perkembangan jaringan saraf otak manusia terjadi di rentang waktu singkat ini.
+            </p>
+
+            <h3>1. Masa Kehamilan (270 Hari)</h3>
+            <p>
+                Kesehatan dan asupan nutrisi ibu hamil menjadi pondasi utama. Kekurangan asam folat, zat besi, dan protein selama masa ini dapat meningkatkan risiko gangguan organ, anemia pada ibu, hingga kejadian berat lahir rendah (BBLR).
+            </p>
+
+            <h3>2. Usia 0–6 Bulan (180 Hari)</h3>
+            <p>
+                Asi Eksklusif adalah modal absolut. Air Susu Ibu (ASI) mengandung nutrisi sempurna serta zat kekebalan tubuh alami yang melindungi bayi dari infeksi berulang seperti diare dan ISPA, yang menjadi salah satu pemicu utama stunting.
+            </p>
+
+            <h3>3. Usia 6–24 Bulan (550 Hari)</h3>
+            <p>
+                Masa pengenalan Makanan Pendamping ASI (MPASI). Kebutuhan energi anak meningkat pesat, sehingga MPASI yang kaya protein hewani (seperti telur, ikan, ayam, dan daging) sangat diperlukan untuk mendukung pertambahan tinggi serta berat badan ideal.
+            </p>
+
+            <div class="callout-box">
+                <h4><i data-lucide="check-circle-2"></i> Panduan Langkah Nyata Otimalisasi 1000 HPK</h4>
+                <ul>
+                    <li><strong>Saat Hamil:</strong> Rutin minum TTD (Tablet Tambah Darah) dan lakukan pemeriksaan ANC minimal 6 kali ke fasilitas kesehatan.</li>
+                    <li><strong>Usia 0-6 Bulan:</strong> Berikan hanya ASI Eksklusif tanpa tambahan cairan atau makanan lain.</li>
+                    <li><strong>Usia 6-24 Bulan:</strong> Berikan MPASI adekuat kaya protein hewani dan lanjutkan pemberian ASI.</li>
+                    <li><strong>Pantau Tumbuh Kembang:</strong> Timbang dan ukur badan anak tiap bulan di Posyandu/Puskesmas terdekat.</li>
+                </ul>
+            </div>
+
+            <h2>Dampak Jangka Panjang bagi Anak</h2>
+            <p>
+                Anak yang mendapatkan pemenuhan nutrisi dan pengasuhan yang optimal pada 1000 HPK tidak hanya terhindar dari risiko <strong>stunting</strong> (bertubuh pendek dibanding usianya), tetapi juga memiliki daya tahan tubuh yang kuat, kecerdasan akademis yang lebih tinggi, serta terhindar dari risiko penyakit tidak menular (seperti diabetes dan penyakit jantung) saat dewasa.
+            </p>
+
+            <p>
+                Mari kita dampingi buah hati di setiap detiknya selama 1000 hari pertama. Kebijakan nutrisi dan pola asuh kita hari ini adalah investasi berharga untuk masa depan mereka.
+            </p>
+        </article>
+
+        <!-- AUTHOR BIO -->
+        <div class="author-box">
+            <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=150&q=80" alt="dr. Siti Rahmah">
+            <div class="author-box-info">
+                <h4>Diturilis oleh dr. Siti Rahmah, Sp.A</h4>
+                <p>Dokter Spesialis Anak di RSUD Ulin Banjarmasin dan Mitra Tenaga Ahli Tim Batakun Sanak. Berpengalaman dalam edukasi gizi anak dan pencegahan stunting.</p>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- ARTIKEL TERKAIT -->
+    <section class="related-section">
+        <div class="container-narrow">
+            <h3 class="related-title">Artikel Terkait Lainnya</h3>
+            <div class="related-grid">
+                
+                <a href="#" class="related-card">
+                    <img src="https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?auto=format&fit=crop&w=200&q=80" alt="KB">
+                    <div>
+                        <h4>Mengenal MKJP: Pilihan Kontrasepsi Efektif Jangka Panjang</h4>
+                        <span style="font-size: 11px; color: var(--text-soft);">4 Min Baca</span>
+                    </div>
+                </a>
+
+                <a href="#" class="related-card">
+                    <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=200&q=80" alt="Pra Nikah">
+                    <div>
+                        <h4>Persiapan Mental dan Kesehatan Sebelum Melangkah ke Pelaminan</h4>
+                        <span style="font-size: 11px; color: var(--text-soft);">5 Min Baca</span>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <strong>Batakun Sanak</strong>
+                    <p>Ruang nyaman untuk setiap cerita keluarga. Layanan konsultasi keluarga online gratis, terpercaya, dan aman.</p>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Navigasi</h4>
+                    <a href="index.html">Beranda</a>
+                    <a href="index.html#layanan">Layanan</a>
+                    <a href="artikel.html" class="active">Artikel</a>
+                    <a href="#">Tutorial</a>
+                    <a href="index.html#tentang">Tentang Kami</a>
+                    <a href="index.html#faq">FAQ</a>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Topik Popular</h4>
+                    <a href="#">Cegah Stunting</a>
+                    <a href="#">Pilih Alat Kontrasepsi</a>
+                    <a href="#">Konseling Pra-Nikah</a>
+                    <a href="#">Lansia Tangguh</a>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Jam Operasional</h4>
+                    <a href="#">Senin - Jumat</a>
+                    <a href="#">08:00 - 17:00 WITA</a>
+                    <a href="#">Layanan Online WA</a>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                © 2026 Batakun Sanak. Inspirasi Layanan SiapBahagia. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Init Icons
+        lucide.createIcons();
+    </script>
+</body>
+</html>

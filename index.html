@@ -1,0 +1,2247 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Batakun Sanak - Ruang Nyaman untuk Setiap Cerita Keluarga</title>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+
+        /* =========================================================
+           ROOT PALETTE (SESUAI FOTO BUNGA PURPLE/GOLD/SAGE)
+           - Purple / Lavender : #A680DA / #7B5282 / #D8CEF6
+           - Gold / Yellow     : #FFC800 / #E6B400 / #FFF3C4
+           - Sage / Green      : #818D5D / #657045 / #F0F3E8
+           - Dark Mauve/Plum   : #79556C
+        ========================================================= */
+
+        :root {
+            /* Warna Ungu Utama / Lavender */
+            --purple: #A680DA;
+            --purple-dark: #7B5282;
+            --purple-light: #F1ECFA;
+
+            /* Warna Magenta / Dark Mauve diganti Plum */
+            --magenta: #79556C;
+            --magenta-dark: #583A4E;
+            --magenta-light: #EBE3E8;
+
+            /* Warna Kuning Emas */
+            --yellow: #FFC800;
+            --yellow-light: #FFF8D6;
+            --yellow-dark: #B88E00;
+
+            /* Warna Hijau Sage / Olive Soft */
+            --sage: #818D5D;
+            --sage-dark: #5E6840;
+            --sage-light: #F2F4ED;
+
+            /* Cyan/Turquoise lama diganti ke Lavender Soft */
+            --cyan: #9884CF;
+            --cyan-dark: #6C52B0;
+            --cyan-light: #EFEAF9;
+
+            --text: #2A2135;
+            --text-soft: #635870;
+            --border: #E3DDF0;
+
+            --white: #ffffff;
+
+            --shadow: 0 15px 45px rgba(123, 82, 130, 0.12);
+        }
+
+
+        /* =========================================================
+           RESET & GENERAL
+        ========================================================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "DM Sans", sans-serif;
+            color: var(--text);
+            background: #ffffff;
+            overflow-x: hidden;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        button {
+            font-family: inherit;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1180px;
+            margin: auto;
+            padding-left: 24px;
+            padding-right: 24px;
+        }
+
+
+        /* =========================================================
+           NAVBAR
+        ========================================================= */
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 10px 0;
+            transition: all .3s ease;
+        }
+
+        .nav-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-icon {
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 14px;
+            background: var(--white);
+            color: var(--purple-dark);
+            box-shadow: 0 8px 25px rgba(123, 82, 130, 0.18);
+        }
+
+        .logo-icon svg {
+            width: 22px;
+        }
+
+        .logo-text strong {
+            display: block;
+            font-family: "Plus Jakarta Sans", sans-serif;
+            font-size: 18px;
+            font-weight: 800;
+            color: var(--text);
+        }
+
+        .logo-text span {
+            display: block;
+            margin-top: 1px;
+            color: var(--text-soft);
+            font-size: 10px;
+            font-weight: 600;
+        }
+
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            color: var(--text);
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .nav-menu a {
+            transition: .2s;
+        }
+
+        .nav-menu a:hover {
+            color: var(--purple-dark);
+            transform: translateY(-1px);
+        }
+
+        .nav-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 11px 20px;
+            border-radius: 50px;
+            background: var(--purple-dark);
+            color: white;
+            font-size: 13px;
+            font-weight: 700;
+            box-shadow: 0 8px 25px rgba(123, 82, 130, 0.28);
+            transition: .25s;
+        }
+
+        .nav-button:hover {
+            background: var(--magenta-dark);
+            transform: translateY(-2px);
+        }
+
+
+        /* =========================================================
+           HERO SECTION
+        ========================================================= */
+
+        .hero {
+            position: relative;
+            min-height: 840px;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            background: 
+                linear-gradient(
+                    to left, 
+                    rgba(255, 255, 255, 0.15) 0%, 
+                    rgba(239, 234, 249, 0.85) 45%, 
+                    rgba(255, 255, 255, 0.98) 85%,
+                    rgba(255, 255, 255, 1) 100%
+                ),
+                url("bg.jfif");
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            border-radius: 50%;
+            background: rgba(166, 128, 218, 0.25);
+            filter: blur(90px);
+            top: -150px;
+            left: -150px;
+        }
+
+        .hero::after {
+            content: "";
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            background: rgba(255, 200, 0, 0.2);
+            filter: blur(90px);
+            bottom: -150px;
+            right: 15%;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 3;
+            padding-top: 0px !important;    /* Atau sesuaikan misal 30px - 50px */
+            padding-bottom: 0px !important;
+            display: grid;
+            grid-template-columns: 1fr 0.88fr;
+            gap: 60px;
+            align-items: flex-start;
+        }
+
+        .hero-badge-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 7px 14px;
+            border-radius: 50px;
+            background: var(--white);
+            border: 1px solid var(--border);
+            color: var(--purple-dark);
+            font-size: 11px;
+            font-weight: 700;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.04);
+        }
+
+        .hero-badge.time {
+            background: var(--yellow-light);
+            border-color: var(--yellow);
+            color: var(--yellow-dark);
+        }
+
+        .badge-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--purple);
+            box-shadow: 0 0 0 4px rgba(166, 128, 218, 0.3);
+        }
+
+        .hero-title {
+            font-family: "Plus Jakarta Sans", sans-serif;
+            font-size: clamp(44px, 5.5vw, 68px);
+            line-height: 1.05;
+            letter-spacing: -2px;
+            font-weight: 800;
+            color: var(--text);
+            margin-bottom: 16px;
+        }
+
+        .hero-title span {
+            color: var(--purple-dark);
+        }
+
+        .hero-tagline {
+            font-family: "Plus Jakarta Sans", sans-serif;
+            font-size: clamp(20px, 2.2vw, 28px);
+            line-height: 1.35;
+            font-weight: 700;
+            color: var(--magenta);
+            margin-bottom: 16px;
+        }
+
+        .hero-description {
+            max-width: 560px;
+            color: var(--text-soft);
+            font-size: 15px;
+            line-height: 1.8;
+            margin-bottom: 28px;
+        }
+
+        .hero-actions {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 9px;
+            padding: 15px 24px;
+            border-radius: 14px;
+            background: var(--purple-dark);
+            color: white;
+            font-size: 14px;
+            font-weight: 700;
+            box-shadow: 0 10px 30px rgba(123, 82, 130, 0.35);
+            transition: .25s;
+        }
+
+        .btn-primary:hover {
+            background: var(--magenta-dark);
+            transform: translateY(-3px);
+        }
+
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 9px;
+            padding: 15px 24px;
+            border-radius: 14px;
+            background: var(--white);
+            border: 1px solid var(--border);
+            color: var(--purple-dark);
+            font-size: 14px;
+            font-weight: 700;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.04);
+            transition: .25s;
+        }
+
+        .btn-secondary:hover {
+            background: var(--purple-light);
+            transform: translateY(-3px);
+        }
+
+        .hero-trust {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-top: 30px;
+            color: var(--text-soft);
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .trust-icons {
+            display: flex;
+        }
+
+        .trust-icon {
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: -8px;
+            border-radius: 50%;
+            background: var(--white);
+            border: 2px solid var(--purple-light);
+            color: var(--purple-dark);
+        }
+
+        .trust-icon:first-child {
+            margin-left: 0;
+        }
+
+        /* HERO RIGHT CARD */
+        .hero-right {
+            display: flex;
+            justify-content: center;
+        }
+
+        .hero-card {
+            width: 100%;
+            max-width: 430px;
+            padding: 28px;
+            border-radius: 28px;
+            background: rgba(255, 255, 255, 0.92);
+            border: 2px solid var(--white);
+            box-shadow: 0 25px 60px rgba(123, 82, 130, 0.18);
+            backdrop-filter: blur(16px);
+        }
+
+        .card-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .card-label {
+            color: var(--purple-dark);
+            font-size: 11px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .online-status {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 12px;
+            border-radius: 50px;
+            background: var(--sage-light);
+            color: var(--sage-dark);
+            font-size: 11px;
+            font-weight: 700;
+        }
+
+        .online-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: var(--sage);
+        }
+
+        .hero-card h2 {
+            font-family: "Plus Jakarta Sans", sans-serif;
+            font-size: 23px;
+            line-height: 1.3;
+            color: var(--text);
+            margin-bottom: 10px;
+        }
+
+        .hero-card-description {
+            color: var(--text-soft);
+            font-size: 12px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .consultation-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .consultation-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px;
+            border-radius: 14px;
+            background: var(--white);
+            border: 1px solid var(--border);
+            transition: .25s;
+        }
+
+        .consultation-item:hover {
+            transform: translateX(4px);
+            border-color: var(--purple);
+            box-shadow: 0 6px 18px rgba(0,0,0,0.05);
+        }
+
+        .consultation-icon {
+            width: 40px;
+            height: 40px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+            background: var(--purple-light);
+            color: var(--purple-dark);
+        }
+
+        .consultation-icon.magenta { background: var(--magenta-light); color: var(--magenta); }
+        .consultation-icon.cyan { background: var(--sage-light); color: var(--sage-dark); }
+        .consultation-icon.yellow { background: var(--yellow-light); color: var(--yellow-dark); }
+
+        .consultation-text strong {
+            display: block;
+            color: var(--text);
+            font-size: 13px;
+            margin-bottom: 2px;
+        }
+
+        .consultation-text span {
+            color: var(--text-soft);
+            font-size: 11px;
+        }
+
+
+        /* =========================================================
+           SIAPBAHAGIA FEATURE HIGHLIGHTS
+        ========================================================= */
+
+        .sb-features {
+            padding: 30px 0;
+            background: var(--white);
+            margin-top: -40px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .sb-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .sb-card {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 20px;
+            border-radius: 18px;
+            background: var(--white);
+            border: 1px solid var(--border);
+            box-shadow: 0 10px 30px rgba(123, 82, 130, 0.08);
+            transition: .25s;
+        }
+
+        .sb-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--purple);
+        }
+
+        .sb-icon {
+            width: 46px;
+            height: 46px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 14px;
+            background: var(--purple-light);
+            color: var(--purple-dark);
+        }
+
+        .sb-card:nth-child(2) .sb-icon { background: var(--magenta-light); color: var(--magenta); }
+        .sb-card:nth-child(3) .sb-icon { background: var(--sage-light); color: var(--sage-dark); }
+        .sb-card:nth-child(4) .sb-icon { background: var(--yellow-light); color: var(--yellow-dark); }
+
+        .sb-info h4 {
+            font-family: "Plus Jakarta Sans", sans-serif;
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 2px;
+        }
+
+        .sb-info p {
+            font-size: 11px;
+            color: var(--text-soft);
+        }
+
+
+        /* =========================================================
+           POPULATION CLOCK SECTION (FITUR BARU 13 KAB/KOTA KALSEL)
+        ========================================================= */
+
+        .pop-clock-section {
+            background: linear-gradient(180deg, #ffffff 0%, var(--purple-light) 100%);
+            padding: 90px 0;
+            position: relative;
+        }
+
+        .pop-total-banner {
+            background: var(--white);
+            border: 2px solid var(--purple);
+            border-radius: 24px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            margin-bottom: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pop-total-banner::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 6px;
+            background: linear-gradient(90deg, var(--purple), var(--yellow), var(--sage));
+        }
+
+        .pop-total-title {
+            font-size: 13px;
+            font-weight: 800;
+            letter-spacing: 1.5px;
+            color: var(--purple-dark);
+            text-transform: uppercase;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .pop-total-number {
+            font-family: "Plus Jakarta Sans", sans-serif;
+            font-size: clamp(38px, 6vw, 64px);
+            font-weight: 800;
+            color: var(--text);
+            line-height: 1.1;
+            letter-spacing: -1px;
+            margin: 10px 0;
+        }
+
+        .pop-total-subtext {
+            color: var(--text-soft);
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+        }
+
+        .live-pulse {
+            width: 10px;
+            height: 10px;
+            background: var(--sage);
+            border-radius: 50%;
+            display: inline-block;
+            box-shadow: 0 0 0 0 rgba(129, 141, 93, 0.7);
+            animation: pulse-ring 1.5s infinite;
+        }
+
+        @keyframes pulse-ring {
+            0% { box-shadow: 0 0 0 0 rgba(129, 141, 93, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(129, 141, 93, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(129, 141, 93, 0); }
+        }
+
+        .pop-filter-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .pop-search-input {
+            padding: 12px 20px;
+            border-radius: 50px;
+            border: 1px solid var(--border);
+            width: 100%;
+            max-width: 320px;
+            font-size: 13px;
+            outline: none;
+            transition: .25s;
+        }
+
+        .pop-search-input:focus {
+            border-color: var(--purple-dark);
+            box-shadow: 0 0 0 3px rgba(123, 82, 130, 0.15);
+        }
+
+        .pop-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .pop-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 22px;
+            border: 1px solid var(--border);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.02);
+            transition: .3s;
+            position: relative;
+        }
+
+        .pop-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--purple);
+            box-shadow: 0 15px 35px rgba(123, 82, 130, 0.15);
+        }
+
+        .pop-card-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 12px;
+        }
+
+        .pop-badge {
+            font-size: 10px;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 50px;
+            background: var(--purple-light);
+            color: var(--purple-dark);
+        }
+
+        .pop-badge.kota {
+            background: var(--yellow-light);
+            color: var(--yellow-dark);
+        }
+
+        .pop-card h3 {
+            font-family: "Plus Jakarta Sans", sans-serif;
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 4px;
+        }
+
+        .pop-card-capital {
+            font-size: 11px;
+            color: var(--text-soft);
+            margin-bottom: 16px;
+        }
+
+        .pop-count-number {
+            font-family: "Plus Jakarta Sans", sans-serif;
+            font-size: 26px;
+            font-weight: 800;
+            color: var(--purple-dark);
+            transition: color 0.3s;
+        }
+
+        .pop-count-number.updated {
+            color: var(--yellow-dark);
+        }
+
+        .pop-card-foot {
+            margin-top: 12px;
+            padding-top: 10px;
+            border-top: 1px dashed var(--border);
+            display: flex;
+            justify-content: space-between;
+            font-size: 11px;
+            color: var(--text-soft);
+        }
+
+
+        /* =========================================================
+           GENERAL SECTION
+        ========================================================= */
+
+        section.content-section {
+            padding: 90px 0;
+        }
+
+        .section-header {
+            max-width: 650px;
+            margin-bottom: 45px;
+        }
+
+        .section-label {
+            display: inline-block;
+            margin-bottom: 10px;
+            color: var(--purple-dark);
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+        }
+
+        .section-title {
+            font-family: "Plus Jakarta Sans", sans-serif;
+            font-size: clamp(28px, 3.8vw, 40px);
+            line-height: 1.2;
+            letter-spacing: -1px;
+            color: var(--text);
+            margin-bottom: 12px;
+        }
+
+        .section-description {
+            color: var(--text-soft);
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+
+        /* =========================================================
+           SERVICES
+        ========================================================= */
+
+        .services {
+            background: var(--purple-light);
+        }
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
+        }
+
+        .service-card {
+            min-height: 250px;
+            padding: 26px;
+            border-radius: 20px;
+            background: var(--white);
+            border: 1px solid var(--border);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.03);
+            transition: .3s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Mendorong tombol ke posisi paling bawah */
+        .service-card .btn-konsultasi {
+            margin-top: auto; /* Kunci utama agar tombol menempel di bawah */
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 16px;
+            background: var(--primary, #6c5ce7); /* Menggunakan variabel warna utama kamu */
+            color: #ffffff;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        /* Efek hover tombol */
+        .service-card .btn-konsultasi:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+        }
+
+        .service-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 18px 40px rgba(123, 82, 130, 0.15);
+            border-color: var(--purple);
+        }
+
+        .service-icon {
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 14px;
+            margin-bottom: 20px;
+        }
+
+        .service-icon.lime { background: var(--purple-light); color: var(--purple-dark); }
+        .service-icon.magenta { background: var(--magenta-light); color: var(--magenta); }
+        .service-icon.cyan { background: var(--sage-light); color: var(--sage-dark); }
+        .service-icon.yellow { background: var(--yellow-light); color: var(--yellow-dark); }
+
+        .service-card h3 {
+            font-family: "Plus Jakarta Sans", sans-serif;
+            color: var(--text);
+            font-size: 16px;
+            margin-bottom: 8px;
+        }
+
+        .service-card p {
+            color: var(--text-soft);
+            font-size: 12px;
+            line-height: 1.7;
+        }
+
+
+        /* =========================================================
+           SLIDER TENAGA AHLI / KONSELOR
+        ========================================================= */
+
+        .experts {
+            background: var(--white);
+            position: relative;
+        }
+
+        .experts-header-wrap {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 40px;
+        }
+
+        .slider-controls {
+            display: flex;
+            gap: 10px;
+        }
+
+        .slider-btn {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            border: 1px solid var(--border);
+            background: var(--white);
+            color: var(--text);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: .25s;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+        }
+
+        .slider-btn:hover {
+            background: var(--purple-dark);
+            color: white;
+            border-color: var(--purple-dark);
+        }
+
+        .experts-slider-container {
+            overflow: hidden;
+            width: 100%;
+            position: relative;
+            padding: 10px 0 20px;
+        }
+
+        .experts-track {
+            display: flex;
+            gap: 24px;
+            transition: transform 0.45s ease-in-out;
+        }
+
+        .expert-card-item {
+            flex: 0 0 calc(33.333% - 16px);
+            background: var(--white);
+            border-radius: 24px;
+            border: 1px solid var(--border);
+            padding: 24px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+            transition: .3s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .expert-card-item:hover {
+            transform: translateY(-6px);
+            border-color: var(--purple);
+            box-shadow: 0 18px 40px rgba(166, 128, 218, 0.15);
+        }
+
+        .expert-photo-wrap {
+            position: relative;
+            width: 100%;
+            height: 220px;
+            border-radius: 16px;
+            overflow: hidden;
+            margin-bottom: 18px;
+            background: var(--purple-light);
+        }
+
+        .expert-photo-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .expert-badge-tag {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            padding: 5px 12px;
+            border-radius: 50px;
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(8px);
+            color: var(--purple-dark);
+            font-size: 10px;
+            font-weight: 800;
+            text-transform: uppercase;
+        }
+
+        .expert-card-item h3 {
+            font-family: "Plus Jakarta Sans", sans-serif;
+            font-size: 17px;
+            color: var(--text);
+            margin-bottom: 4px;
+        }
+
+        .expert-role {
+            font-size: 12px;
+            color: var(--purple-dark);
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .expert-desc {
+            font-size: 12px;
+            color: var(--text-soft);
+            line-height: 1.6;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .expert-action-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            width: 100%;
+            padding: 12px;
+            border-radius: 12px;
+            background: var(--purple-light);
+            color: var(--purple-dark);
+            font-size: 12px;
+            font-weight: 700;
+            transition: .2s;
+        }
+
+        .expert-action-btn:hover {
+            background: var(--purple-dark);
+            color: white;
+        }
+
+        .slider-dots {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 25px;
+        }
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--border);
+            cursor: pointer;
+            transition: .3s;
+        }
+
+        .dot.active {
+            width: 28px;
+            border-radius: 20px;
+            background: var(--purple);
+        }
+
+
+        /* =========================================================
+           WHY US
+        ========================================================= */
+
+        .why {
+            background: var(--yellow-light);
+        }
+
+        .why-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .why-image {
+            min-height: 460px;
+            border-radius: 28px;
+            background: linear-gradient(rgba(123, 82, 130, 0.25), rgba(255, 200, 0, 0.15)),
+                url("https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1200&q=85");
+            background-size: cover;
+            background-position: center;
+            box-shadow: 0 20px 50px rgba(123, 82, 130, 0.15);
+            position: relative;
+        }
+
+        .image-card {
+            position: absolute;
+            bottom: 24px;
+            left: 24px;
+            right: 24px;
+            padding: 20px;
+            border-radius: 18px;
+            background: rgba(255,255,255,0.92);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--white);
+        }
+
+        .image-card strong {
+            display: block;
+            font-family: "Plus Jakarta Sans", sans-serif;
+            color: var(--text);
+            font-size: 15px;
+            margin-bottom: 4px;
+        }
+
+        .image-card span {
+            color: var(--text-soft);
+            font-size: 11px;
+        }
+
+        .why-list {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+            margin-top: 25px;
+        }
+
+        .why-item {
+            display: flex;
+            gap: 15px;
+            align-items: flex-start;
+        }
+
+        .why-number {
+            width: 38px;
+            height: 38px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+            background: var(--purple-light);
+            color: var(--purple-dark);
+            font-weight: 800;
+            font-size: 12px;
+        }
+
+        .why-item h3 {
+            color: var(--text);
+            font-family: "Plus Jakarta Sans", sans-serif;
+            font-size: 14px;
+            margin-bottom: 4px;
+        }
+
+        .why-item p {
+            color: var(--text-soft);
+            font-size: 12px;
+            line-height: 1.7;
+        }
+
+
+        /* =========================================================
+           PROCESS / CARA KONSULTASI
+        ========================================================= */
+
+        .process {
+            background: var(--white);
+        }
+
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
+        }
+
+        .process-card {
+            padding: 26px;
+            background: var(--white);
+            border-radius: 20px;
+            border: 1px solid var(--border);
+        }
+
+        .process-number {
+            width: 38px;
+            height: 38px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: var(--purple-light);
+            color: var(--purple-dark);
+            font-size: 13px;
+            font-weight: 800;
+            margin-bottom: 20px;
+        }
+
+        .process-card h3 {
+            font-family: "Plus Jakarta Sans", sans-serif;
+            font-size: 15px;
+            color: var(--text);
+            margin-bottom: 8px;
+        }
+
+        .process-card p {
+            color: var(--text-soft);
+            font-size: 12px;
+            line-height: 1.7;
+        }
+
+
+        /* =========================================================
+           FAQ
+        ========================================================= */
+
+        .faq {
+            background: var(--purple-light);
+        }
+
+        .faq-wrapper {
+            max-width: 850px;
+            margin: auto;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid var(--border);
+        }
+
+        .faq-question {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            padding: 20px 0;
+            background: none;
+            border: none;
+            color: var(--text);
+            text-align: left;
+            font-family: "Plus Jakarta Sans", sans-serif;
+            font-size: 14px;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        .faq-question svg {
+            flex-shrink: 0;
+            transition: .3s;
+            color: var(--purple-dark);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height .35s ease;
+        }
+
+        .faq-answer p {
+            padding: 0 40px 20px 0;
+            color: var(--text-soft);
+            font-size: 12px;
+            line-height: 1.8;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 200px;
+        }
+
+        .faq-item.active .faq-question svg {
+            transform: rotate(180deg);
+        }
+
+
+        /* =========================================================
+           CTA
+        ========================================================= */
+
+        .cta {
+            padding: 90px 24px;
+            background: linear-gradient(135deg, var(--purple-dark) 0%, var(--magenta) 100%);
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta h2 {
+            font-family: "Plus Jakarta Sans", sans-serif;
+            font-size: clamp(28px, 3.8vw, 42px);
+            line-height: 1.2;
+            margin-bottom: 12px;
+        }
+
+        .cta p {
+            max-width: 580px;
+            margin: auto auto 26px;
+            color: rgba(255,255,255,0.9);
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 9px;
+            padding: 15px 26px;
+            border-radius: 14px;
+            background: var(--yellow);
+            color: var(--text);
+            font-size: 14px;
+            font-weight: 700;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: .25s;
+        }
+
+        .cta-button:hover {
+            background: var(--yellow-dark);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+
+        /* =========================================================
+           FOOTER
+        ========================================================= */
+
+        footer {
+            padding: 50px 0 25px;
+            background: #1F1829;
+            color: white;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.4fr 1fr 1fr 1fr;
+            gap: 40px;
+            padding-bottom: 40px;
+        }
+
+        .footer-brand strong {
+            display: block;
+            font-family: "Plus Jakarta Sans", sans-serif;
+            font-size: 19px;
+            margin-bottom: 10px;
+        }
+
+        .footer-brand p {
+            max-width: 320px;
+            color: rgba(255,255,255,.6);
+            font-size: 11px;
+            line-height: 1.8;
+        }
+
+        .footer-column h4 {
+            font-size: 12px;
+            margin-bottom: 15px;
+            color: var(--yellow);
+        }
+
+        .footer-column a {
+            display: block;
+            color: rgba(255,255,255,.58);
+            font-size: 11px;
+            margin-bottom: 10px;
+            transition: .2s;
+        }
+
+        .footer-column a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            padding-top: 22px;
+            border-top: 1px solid rgba(255,255,255,.10);
+            color: rgba(255,255,255,.45);
+            font-size: 10px;
+            text-align: center;
+        }
+
+
+        /* =========================================================
+           RESPONSIVE
+        ========================================================= */
+
+        @media(max-width: 950px) {
+            .nav-menu, .nav-button { display: none; }
+            .hero { min-height: auto; padding-bottom: 60px; }
+            .hero-content { grid-template-columns: 1fr; padding-top: 70px; gap: 40px; }
+            .hero-right { justify-content: flex-start; }
+            .hero-card { max-width: 100%; }
+            .sb-grid { grid-template-columns: repeat(2, 1fr); }
+            .pop-grid { grid-template-columns: repeat(2, 1fr); }
+            .service-grid, .process-grid { grid-template-columns: repeat(2, 1fr); }
+            .why-grid { grid-template-columns: 1fr; gap: 40px; }
+            .expert-card-item { flex: 0 0 calc(50% - 12px); }
+            .footer-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media(max-width: 600px) {
+            .container { padding-left: 18px; padding-right: 18px; }
+            .hero-title { font-size: 42px; }
+            .hero-tagline { font-size: 20px; }
+            .hero-actions { flex-direction: column; align-items: stretch; }
+            .btn-primary, .btn-secondary { width: 100%; }
+            .sb-grid { grid-template-columns: 1fr; }
+            .pop-grid { grid-template-columns: 1fr; }
+            .service-grid, .process-grid { grid-template-columns: 1fr; }
+            .expert-card-item { flex: 0 0 100%; }
+            .footer-grid { grid-template-columns: 1fr 1fr; gap: 30px 20px; }
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <header class="navbar">
+        <div class="container nav-inner">
+            <a href="#home" class="logo">
+                <div class="logo-icon">
+                    <i data-lucide="heart-handshake"></i>
+                </div>
+                <div class="logo-text">
+                    <strong>Batakun Sanak</strong>
+                    <span>Ruang Nyaman Keluarga</span>
+                </div>
+            </a>
+
+            <nav class="nav-menu">
+                <a href="#home">Beranda</a>
+                <a href="#layanan">Layanan</a>
+                <a href="artikel.html">Artikel</a>
+                <a href="tutorial.html">Tutorial</a>
+                <a href="#tentang">Tentang Kami</a>
+                <a href="#faq">FAQ</a>
+            </nav>
+
+            <a href="https://wa.me/" target="_blank" class="nav-button">
+                <i data-lucide="message-circle"></i>
+                Mulai Konsultasi
+            </a>
+        </div>
+    </header>
+
+
+    <!-- HERO SECTION -->
+    <section class="hero" id="home">
+        <div class="container hero-content">
+
+            <!-- LEFT CONTENT -->
+            <div class="hero-left">
+                <div class="hero-badge-group">
+                    <div class="hero-badge">
+                        <span class="badge-dot"></span>
+                        Konsultasi Online Gratis
+                    </div>
+                    <div class="hero-badge time">
+                        <i data-lucide="clock" style="width:12px;height:12px;"></i>
+                        Senin - Jumat, 08:00 - 17:00 WITA
+                    </div>
+                </div>
+
+                <h1 class="hero-title">
+                    Batakun <span>Sanak.</span>
+                </h1>
+
+                <div class="hero-tagline">
+                    Solusi Cerdas & Nyaman untuk Keluarga Bahagia.
+                </div>
+
+                <p class="hero-description">
+                    Layanan informasi dan konsultasi keluarga secara online gratis. Tempat aman untuk bertanya, bercerita, dan konsultasi kesehatan reproduksi, cegah stunting, hingga bina keluarga.
+                </p>
+
+                <div class="hero-actions">
+                    <a href="https://wa.me/" target="_blank" class="btn-primary">
+                        <i data-lucide="message-square"></i>
+                        Konsultasi Via WhatsApp
+                    </a>
+
+                    <a href="#layanan" class="btn-secondary">
+                        <i data-lucide="sparkles"></i>
+                        Pilih Topik Konsultasi
+                    </a>
+                </div>
+
+                <div class="hero-trust">
+                    <div class="trust-icons">
+                        <div class="trust-icon"><i data-lucide="stethoscope"></i></div>
+                        <div class="trust-icon"><i data-lucide="brain"></i></div>
+                        <div class="trust-icon"><i data-lucide="shield-check"></i></div>
+                    </div>
+                    Ditangani langsung oleh Dokter, Psikolog & Tenaga Ahli
+                </div>
+            </div>
+
+            <!-- RIGHT CONTENT CARD -->
+            <div class="hero-right">
+                <div class="hero-card">
+                    <div class="card-top">
+                        <span class="card-label">Batakun Sanak Live</span>
+                        <span class="online-status">
+                            <span class="online-dot"></span>
+                            Konselor Siap
+                        </span>
+                    </div>
+
+                    <h2>Punya Problem Keluarga?</h2>
+
+                    <p class="hero-card-description">
+                        Jangan ragu untuk bertanya. Semua konsultasi dijamin kerahasiaannya dan ditangani secara profesional.
+                    </p>
+
+                    <div class="consultation-list">
+                        <div class="consultation-item">
+                            <div class="consultation-icon lime">
+                                <i data-lucide="baby"></i>
+                            </div>
+                            <div class="consultation-text">
+                                <strong>Khawatir Anak Stunting?</strong>
+                                <span>Informasi gizi, tumbuh kembang & pengasuhan</span>
+                            </div>
+                        </div>
+
+                        <div class="consultation-item">
+                            <div class="consultation-icon magenta">
+                                <i data-lucide="heart-pulse"></i>
+                            </div>
+                            <div class="consultation-text">
+                                <strong>Kontrasepsi yang Cocok?</strong>
+                                <span>Panduan KB modern & kesehatan reproduksi</span>
+                            </div>
+                        </div>
+
+                        <div class="consultation-item">
+                            <div class="consultation-icon cyan">
+                                <i data-lucide="sparkles"></i>
+                            </div>
+                            <div class="consultation-text">
+                                <strong>Galau Kapan Mau Nikah?</strong>
+                                <span>Konseling pra-nikah & kesiapan remaja</span>
+                            </div>
+                        </div>
+
+                        <div class="consultation-item">
+                            <div class="consultation-icon yellow">
+                                <i data-lucide="users"></i>
+                            </div>
+                            <div class="consultation-text">
+                                <strong>Ingin Jadi Lansia Tangguh?</strong>
+                                <span>Program ketahanan & kesehatan keluarga</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- FITUR KEUNGGULAN SIAPBAHAGIA -->
+    <section class="sb-features">
+        <div class="container">
+            <div class="sb-grid">
+                <div class="sb-card">
+                    <div class="sb-icon"><i data-lucide="messages-square"></i></div>
+                    <div class="sb-info">
+                        <h4>Online / Chat Langsung</h4>
+                        <p>Konsultasi via WhatsApp cepat & praktis</p>
+                    </div>
+                </div>
+
+                <div class="sb-card">
+                    <div class="sb-icon"><i data-lucide="user-check"></i></div>
+                    <div class="sb-info">
+                        <h4>Ditangani Dokter & Ahli</h4>
+                        <p>Respon dari tim medis & psikolog berpengalaman</p>
+                    </div>
+                </div>
+
+                <div class="sb-card">
+                    <div class="sb-icon"><i data-lucide="badge-percent"></i></div>
+                    <div class="sb-info">
+                        <h4>100% Layanan Gratis</h4>
+                        <p>Tanpa biaya pendaftaran maupun konseling</p>
+                    </div>
+                </div>
+
+                <div class="sb-card">
+                    <div class="sb-icon"><i data-lucide="lock"></i></div>
+                    <div class="sb-info">
+                        <h4>Kerahasiaan Terjamin</h4>
+                        <p>Privasi & cerita pengguna terjaga aman</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- LAYANAN KONSULTASI -->
+    <section class="content-section services" id="layanan">
+        <div class="container">
+
+            <div class="section-header">
+                <span class="section-label">Layanan SiapBahagia</span>
+                <h2 class="section-title">Teman untuk Setiap Perjalanan Keluarga.</h2>
+                <p class="section-description">
+                    Dapatkan pendampingan langsung dari tenaga ahli untuk berbagai fase kehidupan keluarga Anda.
+                </p>
+            </div>
+
+            <div class="service-grid">
+                <div class="service-card">
+                    <div class="service-icon lime"><i data-lucide="baby"></i></div>
+                    <h3>Pencegahan Stunting</h3>
+                    <p>Pemantauan tumbuh kembang anak, pemenuhan gizi 1000 HPK, dan edukasi pengasuhan optimal.</p>
+                    </br>
+                    <a href="https://wa.me/6281234567890?text=Halo,%20saya%20ingin%20konsultasi%20mengenai%20Pencegahan%20Stunting" 
+                        target="_blank" 
+                        class="nav-button">
+                        <i data-lucide="message-circle"></i>
+                        Konsultasi Sekarang
+                    </a>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon magenta"><i data-lucide="heart-pulse"></i></div>
+                    <h3>Pilihan Alat Kontrasepsi</h3>
+                    <p>Konsultasi metode KB (MKJP & Non-MKJP) yang aman, nyaman, dan sesuai dengan kebutuhan Anda.</p>
+                    </br>
+                    <a href="https://wa.me/6281234567890?text=Halo,%20saya%20ingin%20konsultasi%20mengenai%20Pencegahan%20Stunting" 
+                        target="_blank" 
+                        class="nav-button">
+                        <i data-lucide="message-circle"></i>
+                        Konsultasi Sekarang
+                    </a>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon cyan"><i data-lucide="heart"></i></div>
+                    <h3>Keharmonisan Keluarga</h3>
+                    <p>Solusi komunikasi pasangan, manajemen konflik, serta mewujudkan keluarga yang saling mendukung.</p>
+                    </br>
+                    <a href="https://wa.me/6281234567890?text=Halo,%20saya%20ingin%20konsultasi%20mengenai%20Pencegahan%20Stunting" 
+                        target="_blank" 
+                        class="nav-button">
+                        <i data-lucide="message-circle"></i>
+                        Konsultasi Sekarang
+                    </a>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon yellow"><i data-lucide="sparkles"></i></div>
+                    <h3>Konseling Pra-Nikah</h3>
+                    <p>Persiapan mental, fisik, dan perencanaan kesehatan reproduksi untuk calon pengantin & remaja.</p>
+                    </br>
+                    <a href="https://wa.me/6281234567890?text=Halo,%20saya%20ingin%20konsultasi%20mengenai%20Pencegahan%20Stunting" 
+                        target="_blank" 
+                        class="nav-button">
+                        <i data-lucide="message-circle"></i>
+                        Konsultasi Sekarang
+                    </a>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon cyan"><i data-lucide="shield-check"></i></div>
+                    <h3>Lansia Tangguh</h3>
+                    <p>Pendampingan kesehatan & aktivitas bermakna agar lansia tetap sehat, aktif, dan mandiri.</p>
+                    </br>
+                    <a href="https://wa.me/6281234567890?text=Halo,%20saya%20ingin%20konsultasi%20mengenai%20Pencegahan%20Stunting" 
+                        target="_blank" 
+                        class="nav-button">
+                        <i data-lucide="message-circle"></i>
+                        Konsultasi Sekarang
+                    </a>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon lime"><i data-lucide="building"></i></div>
+                    <h3>Layanan SatyaGatra</h3>
+                    <p>Tersedia opsi konsultasi tatap muka (offline) maupun digital secara aman dan ramah.</p>
+                    </br>
+                    <a href="https://wa.me/6281234567890?text=Halo,%20saya%20ingin%20konsultasi%20mengenai%20Pencegahan%20Stunting" 
+                        target="_blank" 
+                        class="nav-button">
+                        <i data-lucide="message-circle"></i>
+                        Konsultasi Sekarang
+                    </a>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon magenta"><i data-lucide="brain"></i></div>
+                    <h3>Kesehatan Mental</h3>
+                    <p>Ruang aman curhat bersama psikolog untuk mengatasi stres pengasuhan atau beban emosional.</p>
+                    </br>
+                    <a href="https://wa.me/6281234567890?text=Halo,%20saya%20ingin%20konsultasi%20mengenai%20Pencegahan%20Stunting" 
+                        target="_blank" 
+                        class="nav-button">
+                        <i data-lucide="message-circle"></i>
+                        Konsultasi Sekarang
+                    </a>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon yellow"><i data-lucide="users-round"></i></div>
+                    <h3>Bina Keluarga Remaja</h3>
+                    <p>Panduan bagi orang tua dalam mendampingi tumbuh kembang dan dinamika emosi anak remaja.</p>
+                </br>
+                    <a href="https://wa.me/6281234567890?text=Halo,%20saya%20ingin%20konsultasi%20mengenai%20Pencegahan%20Stunting" 
+                        target="_blank" 
+                        class="nav-button">
+                        <i data-lucide="message-circle"></i>
+                        Konsultasi Sekarang
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SECTION POPULATION CLOCK KALIMANTAN SELATAN -->
+    <section class="pop-clock-section" id="pop-clock">
+        <div class="container">
+            
+            <div class="section-header">
+                <span class="section-label">Realtime Demografi</span>
+                <h2 class="section-title">Population Clock Kalimantan Selatan</h2>
+                <p class="section-description">
+                    Estimasi dinamika jumlah penduduk secara realtime di 13 Kabupaten/Kota Provinsi Kalimantan Selatan.
+                </p>
+            </div>
+
+            <!-- Total Banner Kalsel -->
+            <div class="pop-total-banner">
+                <div class="pop-total-title">
+                    <i data-lucide="activity" style="width: 18px; height: 18px;"></i>
+                    Total Populasi Kalimantan Selatan (Estimasi)
+                </div>
+                <div class="pop-total-number" id="totalKalselPop">4.218.450</div>
+                <div class="pop-total-subtext">
+                    <span class="live-pulse"></span>
+                    Angka diperbarui secara otomatis setiap beberapa detik
+                </div>
+            </div>
+
+            <!-- Filter / Search -->
+            <div class="pop-filter-bar">
+                <h3 style="font-family:'Plus Jakarta Sans', sans-serif; font-size:18px;">Rincian 13 Kabupaten / Kota</h3>
+                <input type="text" id="popSearch" class="pop-search-input" placeholder="Cari kabupaten atau kota...">
+            </div>
+
+            <!-- Grid 13 Kab / Kota -->
+            <div class="pop-grid" id="popGrid">
+                <!-- Cards will be populated dynamically via JavaScript -->
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- SLIDER TENAGA AHLI -->
+    <section class="content-section experts" id="ahli">
+        <div class="container">
+            <div class="experts-header-wrap">
+                <div class="section-header" style="margin-bottom:0;">
+                    <span class="section-label">Tim Konselor</span>
+                    <h2 class="section-title">Konsultasi Dengan Tenaga Ahli</h2>
+                    <p class="section-description">Tim profesional siap mendengarkan dan membantu memberikan solusi terbaik.</p>
+                </div>
+
+                <div class="slider-controls">
+                    <button class="slider-btn" id="prevBtn"><i data-lucide="chevron-left"></i></button>
+                    <button class="slider-btn" id="nextBtn"><i data-lucide="chevron-right"></i></button>
+                </div>
+            </div>
+
+            <div class="experts-slider-container">
+                <div class="experts-track" id="expertsTrack">
+
+                    <!-- Expert Card 1 -->
+                    <div class="expert-card-item">
+                        <div class="expert-photo-wrap">
+                            <span class="expert-badge-tag">Dokter Spesialis</span>
+                            <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=600&q=80" alt="dr. Rina">
+                        </div>
+                        <h3>dr. Rina Handayani, Sp.OG</h3>
+                        <div class="expert-role">Spesialis Kebidanan & Kandungan</div>
+                        <p class="expert-desc">Berpengalaman 10+ tahun dalam pendampingan kesehatan reproduksi, kehamilan, dan konseling metode KB modern.</p>
+                        <a href="https://wa.me/" class="expert-action-btn">
+                            <i data-lucide="message-circle" style="width:16px;"></i>
+                            Chat Konsultasi
+                        </a>
+                    </div>
+
+                    <!-- Expert Card 2 -->
+                    <div class="expert-card-item">
+                        <div class="expert-photo-wrap">
+                            <span class="expert-badge-tag">Psikolog Klinis</span>
+                            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=600&q=80" alt="Psikolog Farida">
+                        </div>
+                        <h3>Farida Lestari, M.Psi.</h3>
+                        <div class="expert-role">Psikolog Keluarga & Pasangan</div>
+                        <p class="expert-desc">Fokus pada manajemen konflik pernikahan, parenting stres, serta kesiapan mental remaja dan pra-nikah.</p>
+                        <a href="https://wa.me/" class="expert-action-btn">
+                            <i data-lucide="message-circle" style="width:16px;"></i>
+                            Chat Konsultasi
+                        </a>
+                    </div>
+
+                    <!-- Expert Card 3 -->
+                    <div class="expert-card-item">
+                        <div class="expert-photo-wrap">
+                            <span class="expert-badge-tag">Ahli Gizi</span>
+                            <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=600&q=80" alt="dr. Aris">
+                        </div>
+                        <h3>dr. Aris Nugroho, M.Gizi</h3>
+                        <div class="expert-role">Konsultan Gizi & Stunting</div>
+                        <p class="expert-desc">Membantu memberikan edukasi nutrisi 1000 HPK untuk cegah stunting serta nutrisi ideal bagi lansia tangguh.</p>
+                        <a href="https://wa.me/" class="expert-action-btn">
+                            <i data-lucide="message-circle" style="width:16px;"></i>
+                            Chat Konsultasi
+                        </a>
+                    </div>
+
+                    <!-- Expert Card 4 -->
+                    <div class="expert-card-item">
+                        <div class="expert-photo-wrap">
+                            <span class="expert-badge-tag">Konselor SatyaGatra</span>
+                            <img src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?auto=format&fit=crop&w=600&q=80" alt="Siti Sarah">
+                        </div>
+                        <h3>Siti Sarah, S.Sos.</h3>
+                        <div class="expert-role">Konselor Ketahanan Keluarga</div>
+                        <p class="expert-desc">Pendampingan bina keluarga balita, remaja, dan program pemberdayaan lansia yang produktif dan mandiri.</p>
+                        <a href="https://wa.me/" class="expert-action-btn">
+                            <i data-lucide="message-circle" style="width:16px;"></i>
+                            Chat Konsultasi
+                        </a>
+                    </div>
+
+                    <!-- Expert Card 5 -->
+                    <div class="expert-card-item">
+                        <div class="expert-photo-wrap">
+                            <span class="expert-badge-tag">Bidan Profesional</span>
+                            <img src="https://images.unsplash.com/photo-1594824813566-888550795770?auto=format&fit=crop&w=600&q=80" alt="Bidan Maya">
+                        </div>
+                        <h3>Bidan Maya Safitri, S.Tr.Keb</h3>
+                        <div class="expert-role">Konselor KB & Kesehatan Ibu</div>
+                        <p class="expert-desc">Edukasi komprehensif seputar kesehatan ibu hamil, menyusui, dan panduan memilih alat kontrasepsi yang ramah ibu.</p>
+                        <a href="https://wa.me/" class="expert-action-btn">
+                            <i data-lucide="message-circle" style="width:16px;"></i>
+                            Chat Konsultasi
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="slider-dots" id="sliderDots"></div>
+        </div>
+    </section>
+
+
+    <!-- MENGAPA KAMI -->
+    <section class="content-section why" id="tentang">
+        <div class="container why-grid">
+            <div class="why-image">
+                <div class="image-card">
+                    <strong>Setiap cerita layak didengarkan.</strong>
+                    <span>Batakun Sanak hadir mendampingi keluarga tanpa menghakimi.</span>
+                </div>
+            </div>
+
+            <div>
+                <span class="section-label">Mengapa Batakun Sanak?</span>
+                <h2 class="section-title">Bercerita Lebih Lega Bersama Ahlinya.</h2>
+                <p class="section-description">
+                    Platform konsultasi terpercaya yang mudah diakses kapan saja dan di mana saja untuk mendukung ketahanan keluarga Indonesia.
+                </p>
+
+                <div class="why-list">
+                    <div class="why-item">
+                        <div class="why-number">01</div>
+                        <div>
+                            <h3>Gratis & Tanpa Syarat</h3>
+                            <p>Seluruh akses konsultasi online dapat digunakan tanpa dipungut biaya sedikitpun.</p>
+                        </div>
+                    </div>
+
+                    <div class="why-item">
+                        <div class="why-number">02</div>
+                        <div>
+                            <h3>Pendampingan Tenaga Ahli</h3>
+                            <p>Ditangani langsung oleh tim medis, bidan, psikolog, serta konselor keluarga.</p>
+                        </div>
+                    </div>
+
+                    <div class="why-item">
+                        <div class="why-number">03</div>
+                        <div>
+                            <h3>Privasi Terjamin Aman</h3>
+                            <p>Kerahasiaan identitas dan isi konsultasi Anda terjaga dengan standar etik tinggi.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- CARA KONSULTASI -->
+    <section class="content-section process" id="cara">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Cara Konsultasi</span>
+                <h2 class="section-title">Mudah Dimulai, Langsung Terhubung.</h2>
+                <p class="section-description">4 langkah mudah untuk memulai konsultasi online gratis Anda.</p>
+            </div>
+
+            <div class="process-grid">
+                <div class="process-card">
+                    <div class="process-number">01</div>
+                    <h3>Klik Mulai Konsultasi</h3>
+                    <p>Pilih tombol konsultasi untuk terhubung langsung dengan layanan customer service / WA.</p>
+                </div>
+
+                <div class="process-card">
+                    <div class="process-number">02</div>
+                    <h3>Pilih Topik Layanan</h3>
+                    <p>Sampaikan pertanyaan seputar KB, Stunting, Pernikahan, atau Permasalahan Keluarga.</p>
+                </div>
+
+                <div class="process-card">
+                    <div class="process-number">03</div>
+                    <h3>Dihubungkan ke Tenaga Ahli</h3>
+                    <p>Pesan Anda akan langsung direspon oleh Dokter, Psikolog, atau Konselor yang sesuai.</p>
+                </div>
+
+                <div class="process-card">
+                    <div class="process-number">04</div>
+                    <h3>Dapatkan Solusi Terbaik</h3>
+                    <p>Terima saran, rekomendasi medis/psikologis, dan arahan praktis untuk masalah Anda.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- FAQ -->
+    <section class="content-section faq" id="faq">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">FAQ</span>
+                <h2 class="section-title">Pertanyaan yang Sering Diajukan</h2>
+            </div>
+
+            <div class="faq-wrapper">
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Apakah layanan ini benar-benar gratis?
+                        <i data-lucide="chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Ya, seluruh layanan informasi dan konsultasi di Batakun Sanak 100% gratis tanpa dipungut biaya apapun.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Berapa jam operasional layanan konsultasi online?
+                        <i data-lucide="chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Layanan konsultasi ditangani oleh tim ahli pada hari Senin hingga Jumat, pukul 08:00 - 17:00 WITA.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Bagaimana kerahasiaan data dan isi obrolan saya?
+                        <i data-lucide="chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Seluruh identitas dan pesan konsultasi Anda dijamin kerahasiaannya oleh standar etika profesi konselor kami.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- CTA -->
+    <section class="cta">
+        <div class="container">
+            <h2>Punya Pertanyaan Seputar Keluarga?</h2>
+            <p>Jangan ragu untuk berkonsultasi. Tim kami siap mendengarkan dan membantu Anda.</p>
+            <a href="https://wa.me/" target="_blank" class="cta-button">
+                <i data-lucide="message-circle"></i>
+                Mulai Konsultasi Gratis
+            </a>
+        </div>
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <strong>Batakun Sanak</strong>
+                    <p>Ruang nyaman untuk setiap cerita keluarga. Layanan konsultasi keluarga online gratis, terpercaya, dan aman.</p>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Navigasi</h4>
+                    <a href="#home">Beranda</a>
+                    <a href="#pop-clock">Population Clock Kalsel</a>
+                    <a href="#layanan">Layanan</a>
+                    <a href="#ahli">Tenaga Ahli</a>
+                    <a href="#tentang">Tentang Kami</a>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Topik Popular</h4>
+                    <a href="#layanan">Cegah Stunting</a>
+                    <a href="#layanan">Pilih Alat Kontrasepsi</a>
+                    <a href="#layanan">Konseling Pra-Nikah</a>
+                    <a href="#layanan">Lansia Tangguh</a>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Jam Operasional</h4>
+                    <a href="#">Senin - Jumat</a>
+                    <a href="#">08:00 - 17:00 WITA</a>
+                    <a href="#">Layanan Online WA</a>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                © 2026 Batakun Sanak. Inspirasi Layanan SiapBahagia. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+
+    <script>
+        // Lucide Icons Init
+        lucide.createIcons();
+
+        // FAQ Accordion
+        const faqItems = document.querySelectorAll(".faq-item");
+        faqItems.forEach(function(item) {
+            const question = item.querySelector(".faq-question");
+            question.addEventListener("click", function() {
+                faqItems.forEach(function(otherItem) {
+                    if (otherItem !== item) {
+                        otherItem.classList.remove("active");
+                    }
+                });
+                item.classList.toggle("active");
+            });
+        });
+
+        // SLIDER TENAGA AHLI SCRIPT
+        const track = document.getElementById("expertsTrack");
+        const prevBtn = document.getElementById("prevBtn");
+        const nextBtn = document.getElementById("nextBtn");
+        const dotsContainer = document.getElementById("sliderDots");
+        const cards = document.querySelectorAll(".expert-card-item");
+
+        let currentIndex = 0;
+
+        function getVisibleCards() {
+            if (window.innerWidth <= 600) return 1;
+            if (window.innerWidth <= 950) return 2;
+            return 3;
+        }
+
+        function getMaxIndex() {
+            return cards.length - getVisibleCards();
+        }
+
+        function createDots() {
+            dotsContainer.innerHTML = "";
+            const maxIdx = getMaxIndex();
+            for (let i = 0; i <= maxIdx; i++) {
+                const dot = document.createElement("div");
+                dot.classList.add("dot");
+                if (i === 0) dot.classList.add("active");
+                dot.addEventListener("click", () => goToSlide(i));
+                dotsContainer.appendChild(dot);
+            }
+        }
+
+        function updateSlider() {
+            const visible = getVisibleCards();
+            const cardWidth = cards[0].offsetWidth;
+            const gap = 24;
+            const moveAmount = (cardWidth + gap) * currentIndex;
+            
+            track.style.transform = `translateX(-${moveAmount}px)`;
+
+            // Update Dots
+            const dots = document.querySelectorAll(".dot");
+            dots.forEach((dot, idx) => {
+                dot.classList.toggle("active", idx === currentIndex);
+            });
+        }
+
+        function goToSlide(index) {
+            currentIndex = Math.max(0, Math.min(index, getMaxIndex()));
+            updateSlider();
+        }
+
+        nextBtn.addEventListener("click", () => {
+            if (currentIndex < getMaxIndex()) {
+                currentIndex++;
+            } else {
+                currentIndex = 0;
+            }
+            updateSlider();
+        });
+
+        prevBtn.addEventListener("click", () => {
+            if (currentIndex > 0) {
+                currentIndex--;
+            } else {
+                currentIndex = getMaxIndex();
+            }
+            updateSlider();
+        });
+
+        // Auto Slide
+        let autoSlide = setInterval(() => {
+            nextBtn.click();
+        }, 4000);
+
+        const sliderContainer = document.querySelector(".experts-slider-container");
+        sliderContainer.addEventListener("mouseenter", () => clearInterval(autoSlide));
+        sliderContainer.addEventListener("mouseleave", () => {
+            autoSlide = setInterval(() => nextBtn.click(), 4000);
+        });
+
+        window.addEventListener("resize", () => {
+            createDots();
+            goToSlide(0);
+        });
+
+        // Init Slider
+        createDots();
+
+        // Navbar Blur on Scroll
+        const navbar = document.querySelector(".navbar");
+        window.addEventListener("scroll", function() {
+            if (window.scrollY > 30) {
+                navbar.style.background = "rgba(255, 255, 255, 0.95)";
+                navbar.style.backdropFilter = "blur(12px)";
+                navbar.style.boxShadow = "0 5px 25px rgba(0, 0, 0, 0.06)";
+            } else {
+                navbar.style.background = "transparent";
+                navbar.style.backdropFilter = "none";
+                navbar.style.boxShadow = "none";
+            }
+        });
+
+        // =========================================================
+        // POPULATION CLOCK KALIMANTAN SELATAN SCRIPT
+        // =========================================================
+        const kalselRegions = [
+            { id: "bjm", name: "Kota Banjarmasin", type: "kota", capital: "Banjarmasin Tengah", pop: 672150 },
+            { id: "bjb", name: "Kota Banjarbaru", type: "kota", capital: "Banjarbaru Selatan", pop: 268200 },
+            { id: "ftr", name: "Kab. Banjar", type: "kab", capital: "Martapura", pop: 582400 },
+            { id: "batola", name: "Kab. Barito Kuala", type: "kab", capital: "Marabahan", pop: 322100 },
+            { id: "tala", name: "Kab. Tanah Laut", type: "kab", capital: "Pelaihari", pop: 358900 },
+            { id: "tanbu", name: "Kab. Tanah Bumbu", type: "kab", capital: "Batulicin", pop: 338500 },
+            { id: "ktb", name: "Kab. Kotabaru", type: "kab", capital: "Kotabaru", pop: 335200 },
+            { id: "tpn", name: "Kab. Tapin", type: "kab", capital: "Rantau", pop: 195400 },
+            { id: "hss", name: "Kab. Hulu Sungai Selatan", type: "kab", capital: "Kandangan", pop: 234800 },
+            { id: "hst", name: "Kab. Hulu Sungai Tengah", type: "kab", capital: "Barabai", pop: 265100 },
+            { id: "hsu", name: "Kab. Hulu Sungai Utara", type: "kab", capital: "Amuntai", pop: 232900 },
+            { id: "tab", name: "Kab. Tabalong", type: "kab", capital: "Tanjung", pop: 258600 },
+            { id: "bal", name: "Kab. Balangan", type: "kab", capital: "Paringin", pop: 135200 }
+        ];
+
+        function formatNum(num) {
+            return num.toLocaleString('id-ID');
+        }
+
+        function calculateTotalPop() {
+            return kalselRegions.reduce((acc, curr) => acc + curr.pop, 0);
+        }
+
+        function renderPopGrid(data = kalselRegions) {
+            const grid = document.getElementById("popGrid");
+            grid.innerHTML = "";
+
+            data.forEach(item => {
+                const card = document.createElement("div");
+                card.className = "pop-card";
+                card.innerHTML = `
+                    <div class="pop-card-top">
+                        <span class="pop-badge ${item.type}">${item.type === 'kota' ? 'Kota' : 'Kabupaten'}</span>
+                        <i data-lucide="users" style="width:16px; color: var(--text-soft);"></i>
+                    </div>
+                    <h3>${item.name}</h3>
+                    <div class="pop-card-capital">Pusat/Ibu Kota: ${item.capital}</div>
+                    <div class="pop-count-number" id="pop-val-${item.id}">${formatNum(item.pop)}</div>
+                    <div class="pop-card-foot">
+                        <span>Status: Live Update</span>
+                        <span style="color:var(--sage-dark); font-weight:700;">● Realtime</span>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+
+            lucide.createIcons();
+        }
+
+        function updateRealtimePop() {
+            const numChanges = Math.floor(Math.random() * 3) + 1;
+            
+            for (let i = 0; i < numChanges; i++) {
+                const randIndex = Math.floor(Math.random() * kalselRegions.length);
+                const region = kalselRegions[randIndex];
+                
+                region.pop += Math.floor(Math.random() * 2) + 1;
+
+                const elem = document.getElementById(`pop-val-${region.id}`);
+                if (elem) {
+                    elem.innerText = formatNum(region.pop);
+                    elem.classList.add("updated");
+                    setTimeout(() => elem.classList.remove("updated"), 400);
+                }
+            }
+
+            const totalElem = document.getElementById("totalKalselPop");
+            if (totalElem) {
+                totalElem.innerText = formatNum(calculateTotalPop());
+            }
+        }
+
+        // Search Filter Logic
+        document.getElementById("popSearch").addEventListener("input", function(e) {
+            const query = e.target.value.toLowerCase();
+            const filtered = kalselRegions.filter(item => 
+                item.name.toLowerCase().includes(query) || 
+                item.capital.toLowerCase().includes(query)
+            );
+            renderPopGrid(filtered);
+        });
+
+        // Init Population Clock
+        renderPopGrid();
+        document.getElementById("totalKalselPop").innerText = formatNum(calculateTotalPop());
+        setInterval(updateRealtimePop, 2500);
+
+    </script>
+</body>
+</html>

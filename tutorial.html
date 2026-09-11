@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutorial & Modul Edukasi - Batakun Sanak</title>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        /* =========================================================
+           ROOT PALETTE (Sesuai dengan index.html)
+        ========================================================= */
+        :root {
+            --purple: #A680DA;
+            --purple-dark: #7B5282;
+            --purple-light: #F1ECFA;
+
+            --magenta: #79556C;
+            --magenta-dark: #583A4E;
+            --magenta-light: #EBE3E8;
+
+            --yellow: #FFC800;
+            --yellow-light: #FFF8D6;
+            --yellow-dark: #B88E00;
+
+            --sage: #818D5D;
+            --sage-dark: #5E6840;
+            --sage-light: #F2F4ED;
+
+            --text: #2A2135;
+            --text-soft: #635870;
+            --border: #E3DDF0;
+
+            --white: #ffffff;
+            --shadow: 0 15px 45px rgba(123, 82, 130, 0.12);
+        }
+
+        /* RESET & GENERAL */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "DM Sans", sans-serif;
+            color: var(--text);
+            background: #ffffff;
+            overflow-x: hidden;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1180px;
+            margin: auto;
+            padding-left: 24px;
+            padding-right: 24px;
+        }
+
+        /* NAVBAR (Fixed) */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 10px 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(12px);
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.06);
+            transition: all .3s ease;
+        }
+
+        .nav-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-icon {
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 14px;
+            background: var(--white);
+            color: var(--purple-dark);
+            box-shadow: 0 8px 25px rgba(123, 82, 130, 0.18);
+        }
+
+        .logo-text strong {
+            display: block;
+            font-family: "Plus Jakarta Sans", sans-serif;
+            font-size: 18px;
+            font-weight: 800;
+            color: var(--text);
+        }
+
+        .logo-text span {
+            display: block;
+            margin-top: 1px;
+            color: var(--text-soft);
+            font-size: 10px;
+            font-weight: 600;
+        }
+
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            color: var(--text);
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .nav-menu a { transition: .2s; }
+        .nav-menu a:hover, .nav-menu a.active { color: var(--purple-dark); }
+
+        .nav-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 11px 20px;
+            border-radius: 50px;
+            background: var(--purple-dark);
+            color: white;
+            font-size: 13px;
+            font-weight: 700;
+            box-shadow: 0 8px 25px rgba(123, 82, 130, 0.28);
+            transition: .25s;
+        }
+
+        .nav-button:hover {
+            background: var(--magenta-dark);
+            transform: translateY(-2px);
+        }
+
+        /* HEADER TUTORIAL */
+        .tutorial-header {
+            padding-top: 140px;
+            padding-bottom: 50px;
+            background: linear-gradient(180deg, var(--purple-light) 0%, #ffffff 100%);
+            text-align: center;
+        }
+
+        .header-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 16px;
+            border-radius: 50px;
+            background: var(--white);
+            border: 1px solid var(--border);
+            color: var(--purple-dark);
+            font-size: 12px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .tutorial-title {
+            font-family: "Plus Jakarta Sans", sans-serif;
+            font-size: clamp(32px, 4vw, 48px);
+            font-weight: 800;
+            color: var(--text);
+            margin-bottom: 16px;
+        }
+
+        .tutorial-subtitle {
+            max-width: 620px;
+            margin: auto;
+            color: var(--text-soft);
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        /* FILTER TABS */
+        .filter-section {
+            margin-bottom: 40px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .categories-tabs {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            justify-content: center;
+            background: var(--purple-light);
+            padding: 8px;
+            border-radius: 50px;
+        }
+
+        .tab-btn {
+            padding: 10px 22px;
+            border-radius: 50px;
+            border: none;
+            background: transparent;
+            color: var(--text-soft);
+            font-size: 13px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: .25s;
+        }
+
+        .tab-btn.active, .tab-btn:hover {
+            background: var(--purple-dark);
+            color: var(--white);
+            box-shadow: 0 4px 15px rgba(123, 82, 130, 0.2);
+        }
+
+        /* TUTORIAL GRID & CARD WITH IMAGE */
+        .tutorial-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-bottom: 80px;
+        }
+
+        .tutorial-card {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.02);
+            transition: all .3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .tutorial-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--purple);
+            box-shadow: var(--shadow);
+        }
+
+        /* THUMBNAIL IMAGE CONTAINER */
+        .card-media {
+            position: relative;
+            width: 100%;
+            height: 180px;
+            overflow: hidden;
+        }
+
+        .card-media img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform .4s ease;
+        }
+
+        .tutorial-card:hover .card-media img {
+            transform: scale(1.05);
+        }
+
+        .category-badge-overlay {
+            position: absolute;
+            top: 14px;
+            right: 14px;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 4px 12px;
+            border-radius: 50px;
+            text-transform: uppercase;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .tag-kb { background: var(--magenta-light); color: var(--magenta-dark); }
+        .tag-penduduk { background: var(--yellow-light); color: var(--yellow-dark); }
+        .tag-keluarga { background: var(--sage-light); color: var(--sage-dark); }
+
+        .card-body {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            justify-content: space-between;
+        }
+
+        .card-label {
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--purple-dark);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .tutorial-card-title {
+            font-family: "Plus Jakarta Sans", sans-serif;
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--text);
+            line-height: 1.4;
+            margin-bottom: 10px;
+        }
+
+        .tutorial-desc {
+            font-size: 13px;
+            color: var(--text-soft);
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        /* GDRIVE BUTTON */
+        .gdrive-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
+            padding: 12px;
+            border-radius: 12px;
+            background: #F9F8FC;
+            border: 1px solid var(--border);
+            color: var(--purple-dark);
+            font-size: 13px;
+            font-weight: 700;
+            transition: .25s ease;
+        }
+
+        .tutorial-card:hover .gdrive-link {
+            background: var(--purple-dark);
+            color: var(--white);
+            border-color: var(--purple-dark);
+        }
+
+        /* FOOTER (Sesuai index.html) */
+        footer {
+            padding: 50px 0 25px;
+            background: #1F1829;
+            color: white;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.4fr 1fr 1fr 1fr;
+            gap: 40px;
+            padding-bottom: 40px;
+        }
+
+        .footer-brand strong {
+            display: block;
+            font-family: "Plus Jakarta Sans", sans-serif;
+            font-size: 19px;
+            margin-bottom: 10px;
+        }
+
+        .footer-brand p {
+            max-width: 320px;
+            color: rgba(255,255,255,.6);
+            font-size: 11px;
+            line-height: 1.8;
+        }
+
+        .footer-column h4 {
+            font-size: 12px;
+            margin-bottom: 15px;
+            color: var(--yellow);
+        }
+
+        .footer-column a {
+            display: block;
+            color: rgba(255,255,255,.58);
+            font-size: 11px;
+            margin-bottom: 10px;
+            transition: .2s;
+        }
+
+        .footer-column a:hover { color: white; }
+
+        .footer-bottom {
+            padding-top: 22px;
+            border-top: 1px solid rgba(255,255,255,.10);
+            color: rgba(255,255,255,.45);
+            font-size: 10px;
+            text-align: center;
+        }
+
+        /* RESPONSIVE */
+        @media(max-width: 950px) {
+            .nav-menu, .nav-button { display: none; }
+            .tutorial-grid { grid-template-columns: repeat(2, 1fr); }
+            .footer-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media(max-width: 600px) {
+            .tutorial-grid { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr 1fr; gap: 30px 20px; }
+            .categories-tabs { flex-direction: column; width: 100%; border-radius: 20px; }
+            .tab-btn { width: 100%; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <header class="navbar">
+        <div class="container nav-inner">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">
+                    <i data-lucide="heart-handshake"></i>
+                </div>
+                <div class="logo-text">
+                    <strong>Batakun Sanak</strong>
+                    <span>Ruang Nyaman Keluarga</span>
+                </div>
+            </a>
+
+            <nav class="nav-menu">
+                <a href="index.html">Beranda</a>
+                <a href="index.html#layanan">Layanan</a>
+                <a href="artikel.html">Artikel</a>
+                <a href="tutorial.html">Tutorial</a>
+                <a href="index.html#tentang">Tentang Kami</a>
+                <a href="index.html#faq">FAQ</a>
+            </nav>
+
+            <a href="https://wa.me/" target="_blank" class="nav-button">
+                <i data-lucide="message-circle"></i>
+                Mulai Konsultasi
+            </a>
+        </div>
+    </header>
+
+    <!-- HEADER SECTION -->
+    <section class="tutorial-header">
+        <div class="container">
+            <span class="header-badge">
+                <i data-lucide="presentation" style="width: 14px; height: 14px;"></i>
+                Materi Edukasi & Presentasi
+            </span>
+            <h1 class="tutorial-title">Modul & Tutorial Edukasi</h1>
+            <p class="tutorial-subtitle">
+                Akses dan unduh materi presentasi (PPT) serta dokumen panduan resmi seputar kontrasepsi, kependudukan, dan pembangunan keluarga secara terbuka.
+            </p>
+        </div>
+    </section>
+
+    <!-- MAIN CONTENT -->
+    <main class="container">
+        
+        <!-- FILTER TAB KATEGORI -->
+        <section class="filter-section">
+            <div class="categories-tabs">
+                <button class="tab-btn active" onclick="filterCategory('all', event)">Semua Materi</button>
+                <button class="tab-btn" onclick="filterCategory('kontrasepsi', event)">Alat Kontrasepsi</button>
+                <button class="tab-btn" onclick="filterCategory('kependudukan', event)">Kependudukan</button>
+                <button class="tab-btn" onclick="filterCategory('keluarga', event)">Pembangunan Keluarga</button>
+            </div>
+        </section>
+
+        <!-- GRID CARD TUTORIAL WITH IMAGES -->
+        <section class="tutorial-grid" id="tutorialGrid">
+
+            <!-- KATEGORI: ALAT KONTRASEPSI 1 -->
+            <div class="tutorial-card" data-category="kontrasepsi">
+                <div class="card-media">
+                    <img src="https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?auto=format&fit=crop&w=600&q=80" alt="Panduan MKJP">
+                    <span class="category-badge-overlay tag-kb">Alat Kontrasepsi</span>
+                </div>
+                <div class="card-body">
+                    <div>
+                        <span class="card-label"><i data-lucide="file-text" style="width: 14px;"></i> Slide PPT & Modul</span>
+                        <h2 class="tutorial-card-title">Panduan Pemilihan Alat Kontrasepsi Jangka Panjang (MKJP)</h2>
+                        <p class="tutorial-desc">Materi presentasi mengenai keunggulan, prosedur, dan efektivitas IUD serta Implan untuk pasangan usia subur.</p>
+                    </div>
+                    <a href="https://drive.google.com/" target="_blank" rel="noopener noreferrer" class="gdrive-link">
+                        <i data-lucide="external-link" style="width: 16px;"></i>
+                        Buka File di Google Drive
+                    </a>
+                </div>
+            </div>
+
+            <!-- KATEGORI: ALAT KONTRASEPSI 2 -->
+            <div class="tutorial-card" data-category="kontrasepsi">
+                <div class="card-media">
+                    <img src="https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=600&q=80" alt="Mitos KB">
+                    <span class="category-badge-overlay tag-kb">Alat Kontrasepsi</span>
+                </div>
+                <div class="card-body">
+                    <div>
+                        <span class="card-label"><i data-lucide="file-text" style="width: 14px;"></i> Slide PPT & Modul</span>
+                        <h2 class="tutorial-card-title">Edukasi Efek Samping dan Mitos Prosedur KB Modern</h2>
+                        <p class="tutorial-desc">Slide presentasi pembekalan bagi kader dan masyarakat untuk meluruskan pemahaman seputar kontrasepsi hormonal.</p>
+                    </div>
+                    <a href="https://drive.google.com/" target="_blank" rel="noopener noreferrer" class="gdrive-link">
+                        <i data-lucide="external-link" style="width: 16px;"></i>
+                        Buka File di Google Drive
+                    </a>
+                </div>
+            </div>
+
+            <!-- KATEGORI: KEPENDUDUKAN 1 -->
+            <div class="tutorial-card" data-category="kependudukan">
+                <div class="card-media">
+                    <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=600&q=80" alt="Bonus Demografi">
+                    <span class="category-badge-overlay tag-penduduk">Kependudukan</span>
+                </div>
+                <div class="card-body">
+                    <div>
+                        <span class="card-label"><i data-lucide="file-text" style="width: 14px;"></i> Slide PPT & Modul</span>
+                        <h2 class="tutorial-card-title">Memahami Bonus Demografi dan Isu Kependudukan Kalsel</h2>
+                        <p class="tutorial-desc">Materi panduan analisis data kependudukan, struktur usia produktif, dan dampaknya terhadap perencanaan daerah.</p>
+                    </div>
+                    <a href="https://drive.google.com/" target="_blank" rel="noopener noreferrer" class="gdrive-link">
+                        <i data-lucide="external-link" style="width: 16px;"></i>
+                        Buka File di Google Drive
+                    </a>
+                </div>
+            </div>
+
+            <!-- KATEGORI: KEPENDUDUKAN 2 -->
+            <div class="tutorial-card" data-category="kependudukan">
+                <div class="card-media">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80" alt="Population Clock Dashboard">
+                    <span class="category-badge-overlay tag-penduduk">Kependudukan</span>
+                </div>
+                <div class="card-body">
+                    <div>
+                        <span class="card-label"><i data-lucide="file-text" style="width: 14px;"></i> Slide PPT & Modul</span>
+                        <h2 class="tutorial-card-title">Tutorial Penggunaan Dashboard & Population Clock</h2>
+                        <p class="tutorial-desc">Panduan langkah demi langkah membaca indikator laju pertumbuhan penduduk dan angka kelahiran (TFR).</p>
+                    </div>
+                    <a href="https://drive.google.com/" target="_blank" rel="noopener noreferrer" class="gdrive-link">
+                        <i data-lucide="external-link" style="width: 16px;"></i>
+                        Buka File di Google Drive
+                    </a>
+                </div>
+            </div>
+
+            <!-- KATEGORI: PEMBANGUNAN KELUARGA 1 -->
+            <div class="tutorial-card" data-category="keluarga">
+                <div class="card-media">
+                    <img src="https://images.unsplash.com/photo-1542037104857-ffbb0b9155fb?auto=format&fit=crop&w=600&q=80" alt="Bina Keluarga Balita">
+                    <span class="category-badge-overlay tag-keluarga">Pembangunan Keluarga</span>
+                </div>
+                <div class="card-body">
+                    <div>
+                        <span class="card-label"><i data-lucide="file-text" style="width: 14px;"></i> Slide PPT & Modul</span>
+                        <h2 class="tutorial-card-title">Modul Bina Keluarga Balita (BKB) Pencegahan Stunting</h2>
+                        <p class="tutorial-desc">Materi pelatihan pengasuhan 1000 Hari Pertama Kehidupan (HPK) dan pemenuhan gizi seimbang anak.</p>
+                    </div>
+                    <a href="https://drive.google.com/" target="_blank" rel="noopener noreferrer" class="gdrive-link">
+                        <i data-lucide="external-link" style="width: 16px;"></i>
+                        Buka File di Google Drive
+                    </a>
+                </div>
+            </div>
+
+            <!-- KATEGORI: PEMBANGUNAN KELUARGA 2 -->
+            <div class="tutorial-card" data-category="keluarga">
+                <div class="card-media">
+                    <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=600&q=80" alt="Konseling Pra Nikah">
+                    <span class="category-badge-overlay tag-keluarga">Pembangunan Keluarga</span>
+                </div>
+                <div class="card-body">
+                    <div>
+                        <span class="card-label"><i data-lucide="file-text" style="width: 14px;"></i> Slide PPT & Modul</span>
+                        <h2 class="tutorial-card-title">Panduan Konseling Pembekalan Pra-Nikah Catin</h2>
+                        <p class="tutorial-desc">Slide materi kesiapan fisik, finansial, dan mental psikologis keluarga muda menuju pernikahan yang sejahtera.</p>
+                    </div>
+                    <a href="https://drive.google.com/" target="_blank" rel="noopener noreferrer" class="gdrive-link">
+                        <i data-lucide="external-link" style="width: 16px;"></i>
+                        Buka File di Google Drive
+                    </a>
+                </div>
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <strong>Batakun Sanak</strong>
+                    <p>Ruang nyaman untuk setiap cerita keluarga. Layanan konsultasi keluarga online gratis, terpercaya, dan aman.</p>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Navigasi</h4>
+                    <a href="index.html">Beranda</a>
+                    <a href="index.html#pop-clock">Population Clock Kalsel</a>
+                    <a href="index.html#layanan">Layanan</a>
+                    <a href="index.html#ahli">Tenaga Ahli</a>
+                    <a href="artikel.html">Artikel</a>
+                    <a href="#">Tutorial</a>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Topik Popular</h4>
+                    <a href="#">Cegah Stunting</a>
+                    <a href="#">Pilih Alat Kontrasepsi</a>
+                    <a href="#">Konseling Pra-Nikah</a>
+                    <a href="#">Lansia Tangguh</a>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Jam Operasional</h4>
+                    <a href="#">Senin - Jumat</a>
+                    <a href="#">08:00 - 17:00 WITA</a>
+                    <a href="#">Layanan Online WA</a>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                © 2026 Batakun Sanak. Inspirasi Layanan SiapBahagia. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Init Icons
+        lucide.createIcons();
+
+        // Fitur Filter Kategori
+        function filterCategory(category, e) {
+            // Update active tab button
+            const buttons = document.querySelectorAll('.tab-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            e.target.classList.add('active');
+
+            // Filter cards
+            const cards = document.querySelectorAll('.tutorial-card');
+            cards.forEach(card => {
+                if (category === 'all' || card.getAttribute('data-category') === category) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>
