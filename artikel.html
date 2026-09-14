@@ -645,23 +645,42 @@
     </footer>
 
     <script>
-        // Init Icons
-        lucide.createIcons();
-
-
-        // 1. Inisialisasi ikon Lucide
+    // 1. Inisialisasi ikon Lucide
     lucide.createIcons();
 
-    // 2. Logika Filter Kategori dan Pencarian
+    // 2. Element Selectors
     const filterButtons = document.querySelectorAll('.cat-btn');
     const searchInput = document.querySelector('.search-box input');
-    const articles = document.querySelectorAll('.article-card');
+    
+    // Ambil artikel grid dan artikel utama sekaligus
+    const gridArticles = document.querySelectorAll('.article-card');
+    const featuredSection = document.querySelector('.featured-article');
 
     function filterArticles() {
         const activeCategory = document.querySelector('.cat-btn.active').textContent.trim().toLowerCase();
         const searchQuery = searchInput.value.toLowerCase().trim();
 
-        articles.forEach(article => {
+        // -------------------------------------------------------------
+        // A. Filter Artikel Utama (Featured)
+        // -------------------------------------------------------------
+        if (featuredSection) {
+            const featuredTitle = featuredSection.querySelector('h2').textContent.toLowerCase();
+            const featuredTag = featuredSection.querySelector('.article-tag').textContent.toLowerCase();
+
+            const matchCategory = activeCategory === 'semua' || featuredTag.includes(activeCategory);
+            const matchSearch = featuredTitle.includes(searchQuery);
+
+            if (matchCategory && matchSearch) {
+                featuredSection.style.display = 'block';
+            } else {
+                featuredSection.style.display = 'none';
+            }
+        }
+
+        // -------------------------------------------------------------
+        // B. Filter Grid Artikel
+        // -------------------------------------------------------------
+        gridArticles.forEach(article => {
             const title = article.querySelector('h3').textContent.toLowerCase();
             const tag = article.querySelector('.article-tag').textContent.toLowerCase();
 
@@ -676,7 +695,7 @@
         });
     }
 
-    // Event handler untuk tombol kategori
+    // Event Listener Tombol Kategori
     filterButtons.forEach(btn => {
         btn.addEventListener('click', () => {
             filterButtons.forEach(b => b.classList.remove('active'));
@@ -685,8 +704,8 @@
         });
     });
 
-    // Event handler untuk kolom pencarian
+    // Event Listener Kolom Pencarian
     searchInput.addEventListener('input', filterArticles);
-    </script>
+</script>
 </body>
 </html>
