@@ -254,6 +254,12 @@
             width: 100%;
         }
 
+        .search-box i,
+        .search-box svg {
+        pointer-events: none; /* Mencegah ikon menghalangi fokus klik pada input */
+        flex-shrink: 0;
+        }
+
         /* FEATURED ARTICLE */
         .featured-article {
             margin-bottom: 50px;
@@ -641,6 +647,46 @@
     <script>
         // Init Icons
         lucide.createIcons();
+
+
+        // 1. Inisialisasi ikon Lucide
+    lucide.createIcons();
+
+    // 2. Logika Filter Kategori dan Pencarian
+    const filterButtons = document.querySelectorAll('.cat-btn');
+    const searchInput = document.querySelector('.search-box input');
+    const articles = document.querySelectorAll('.article-card');
+
+    function filterArticles() {
+        const activeCategory = document.querySelector('.cat-btn.active').textContent.trim().toLowerCase();
+        const searchQuery = searchInput.value.toLowerCase().trim();
+
+        articles.forEach(article => {
+            const title = article.querySelector('h3').textContent.toLowerCase();
+            const tag = article.querySelector('.article-tag').textContent.toLowerCase();
+
+            const matchCategory = activeCategory === 'semua' || tag.includes(activeCategory);
+            const matchSearch = title.includes(searchQuery);
+
+            if (matchCategory && matchSearch) {
+                article.style.display = 'flex';
+            } else {
+                article.style.display = 'none';
+            }
+        });
+    }
+
+    // Event handler untuk tombol kategori
+    filterButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            filterButtons.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            filterArticles();
+        });
+    });
+
+    // Event handler untuk kolom pencarian
+    searchInput.addEventListener('input', filterArticles);
     </script>
 </body>
 </html>
