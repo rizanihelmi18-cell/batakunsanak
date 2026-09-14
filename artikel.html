@@ -648,54 +648,84 @@
     // 1. Inisialisasi ikon Lucide
     lucide.createIcons();
 
-    // 2. Element Selectors
+    // 2. Selectors
     const filterButtons = document.querySelectorAll('.cat-btn');
     const searchInput = document.querySelector('.search-box input');
     
-    // Ambil artikel grid dan artikel utama sekaligus
-    const gridArticles = document.querySelectorAll('.article-card');
+    // Ambil semua elemen artikel (baik featured maupun card biasa)
     const featuredSection = document.querySelector('.featured-article');
+    const featuredCard = document.querySelector('.featured-card');
+    const articleCards = Array.from(document.querySelectorAll('.article-card'));
+
+    // Gabungkan semua data artikel ke dalam array JS
+    const allArticles = [
+        {
+            element: featuredCard,
+            type: 'featured',
+            title: featuredCard.querySelector('h2').textContent,
+            desc: featuredCard.querySelector('p').textContent,
+            tag: featuredCard.querySelector('.article-tag').textContent,
+            tagClass: featuredCard.querySelector('.article-tag').className,
+            imgSrc: featuredCard.querySelector('.featured-img').src,
+            meta: featuredCard.querySelector('.article-meta').innerHTML,
+            link: featuredCard.querySelector('.read-more').getAttribute('href')
+        },
+        ...articleCards.map(card => ({
+            element: card,
+            type: 'grid',
+            title: card.querySelector('h3').textContent,
+            desc: card.querySelector('p').textContent,
+            tag: card.querySelector('.article-tag').textContent,
+            tagClass: card.querySelector('.article-tag').className,
+            imgSrc: card.querySelector('.card-img').src,
+            meta: card.querySelector('.article-meta').innerHTML,
+            link: card.querySelector('.read-more').getAttribute('href')
+        }))
+    ];
 
     function filterArticles() {
         const activeCategory = document.querySelector('.cat-btn.active').textContent.trim().toLowerCase();
         const searchQuery = searchInput.value.toLowerCase().trim();
 
-        // -------------------------------------------------------------
-        // A. Filter Artikel Utama (Featured)
-        // -------------------------------------------------------------
-        if (featuredSection) {
-            const featuredTitle = featuredSection.querySelector('h2').textContent.toLowerCase();
-            const featuredTag = featuredSection.querySelector('.article-tag').textContent.toLowerCase();
+        // Cari artikel yang cocok dengan filter/search
+        const filtered = allArticles.filter(art => {
+            const matchCategory = activeCategory === 'semua' || art.tag.toLowerCase().includes(activeCategory);
+            const matchSearch = art.title.toLowerCase().includes(searchQuery);
+            return matchCategory && matchSearch;
+        });
 
-            const matchCategory = activeCategory === 'semua' || featuredTag.includes(activeCategory);
-            const matchSearch = featuredTitle.includes(searchQuery);
+        // Sembunyikan semua elemen artikel asli di DOM terlebih dahulu
+        featuredSection.style.display = 'none';
+        allArticles.forEach(art => {
+            if (art.type === 'grid') art.element.style.display = 'none';
+        });
 
-            if (matchCategory && matchSearch) {
-                featuredSection.style.display = 'block';
-            } else {
-                featuredSection.style.display = 'none';
+        if (filtered.length > 0) {
+            // Artikel pertama yang cocok dijadikan FEATURED (Artikel Utama)
+            const first = filtered[0];
+            featuredSection.style.display = 'block';
+            featuredCard.querySelector('.featured-img').src = first.imgSrc;
+            
+            const tagSpan = featuredCard.querySelector('.article-tag');
+            tagSpan.className = first.tagClass;
+            tagSpan.textContent = first.tag;
+            
+            featuredCard.querySelector('h2').textContent = first.title;
+            featuredCard.querySelector('p').textContent = first.desc;
+            featuredCard.querySelector('.article-meta').innerHTML = first.meta;
+            featuredCard.querySelector('.read-more').setAttribute('href', first.link);
+
+            // Artikel selebihnya ditampilkan di GRID (3 Kolom)
+            for (let i = 1; i < filtered.length; i++) {
+                const art = filtered[i];
+                if (art.type === 'grid') {
+                    art.element.style.display = 'flex';
+                }
             }
         }
-
-        // -------------------------------------------------------------
-        // B. Filter Grid Artikel
-        // -------------------------------------------------------------
-        gridArticles.forEach(article => {
-            const title = article.querySelector('h3').textContent.toLowerCase();
-            const tag = article.querySelector('.article-tag').textContent.toLowerCase();
-
-            const matchCategory = activeCategory === 'semua' || tag.includes(activeCategory);
-            const matchSearch = title.includes(searchQuery);
-
-            if (matchCategory && matchSearch) {
-                article.style.display = 'flex';
-            } else {
-                article.style.display = 'none';
-            }
-        });
     }
 
-    // Event Listener Tombol Kategori
+    // Event Listeners
     filterButtons.forEach(btn => {
         btn.addEventListener('click', () => {
             filterButtons.forEach(b => b.classList.remove('active'));
@@ -704,7 +734,6 @@
         });
     });
 
-    // Event Listener Kolom Pencarian
     searchInput.addEventListener('input', filterArticles);
 </script>
 </body>
